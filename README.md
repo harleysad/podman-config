@@ -2,7 +2,7 @@
 Config podman for better use
 
 
-sudo apt instal 'podman*'
+sudo apt install 'podman*'
 
 add or replace:
 
