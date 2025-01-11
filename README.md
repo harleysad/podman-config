@@ -1,26 +1,16 @@
-# podman-config
-Config podman for better use
+## Config rootless for Podman
 
-sudo apt install 'podman*'
-
-##Set for rootless
-
-$ cat /etc/subgid
-
-customer:165536:65536
-
-
-cat /etc/subuid
-
-customer:165536:65536
-
-##Set for Storage
-
-add or replace:
-
-storage.conf      -> /usr/share/containers/storage.conf
-
-## Set for Repos
-
-registries.conf   -> /etc/containers/registries.conf
-
+1.  ### **Config Repos**
+    
+    *   Clear or delete `/etc/containers/registries.conf.d/shortnames.conf`
+    *   Edit `registries.conf` ( it will be moved to `/etc/containers/registries.conf` )
+2.  ### Config Storage
+    
+    *   Edit `storage.conf`, several issues with access  and file system, put it at your home dir ( it will be moved to `/etc/containers/registries.conf` )
+3.  ### Check gshadow
+    
+    *   `$ cat /etc/subgid`  => `your-user:165536:65536`
+    *   `$cat /etc/subuid` => `your-user:165536:65536`
+4.  ### Install
+    
+    *   `./install` ( it will move your files to right place )
